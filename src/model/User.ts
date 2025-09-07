@@ -65,6 +65,8 @@ const UserSchema : Schema<User> = new Schema({
 
 })
 
+// Check if the model is already registered to prevent re-compilation errors in development mode
+// If the model doesn't exist yet, create it based on our schema
 const UserModel = (mongoose.models.User as mongoose.Model<User>) || mongoose.model<User>("User" , UserSchema)
 
 export default UserModel;
